@@ -3,18 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Form</title>
+    <title>Superhero Application</title>
   </head>
   <body>
-    <h1>Contact Form</h1>
+    <h1>Superhero Application</h1>
     <form action="/submit-form" method="POST">
-      <label for="name">Name:</label>
+      <label for="name">Superhero Name:</label>
       <input type="text" id="name" name="name" required /><br /><br />
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required /><br /><br />
-      <label for="message">Message:</label><br />
+      <label for="ability">Abilitys/Superpowers: </label><br />
       <textarea
-        id="message"
+        id="ability"
         name="message"
         rows="4"
         cols="50"
@@ -23,24 +21,24 @@
       ><br /><br />
       <input type="submit" value="Submit" />
     </form>
-    <h1>User Management</h1>
+    <h1>Rename your Superhero</h1>
     <form id="updateForm">
-      <label for="currentName">Current name:</label>
+      <label for="currentName">Current Superhero name:</label>
       <input type="text" id="currentName" required /><br /><br />
-      <label for="currentEmail">Current email:</label>
-      <input type="email" id="currentEmail" required /><br /><br />
-      <label for="newName">New name:</label>
+     
+     
+      <label for="newName">New Superhero name:</label>
       <input type="text" id="newName" required /><br /><br />
-      <label for="newEmail">New email:</label>
-      <input type="email" id="newEmail" required /><br /><br />
+      <label for="newAbility">New Ability:</label>
+      <input type="text" id="newAbility" required /><br /><br />
       <button type="submit">Update User</button>
     </form>
-    <h1>Show Users</h1>
+    <h1>Superheros</h1>
     <table id="usersTable">
       <thead>
         <tr>
-          <th>User Name</th>
-          <th>User Email</th>
+          <th>Superhero name</th>
+          <th>SuperPower/Abilitys</th>
         </tr>
       </thead>
       <tbody id="userTableBody">
@@ -53,18 +51,18 @@
         .addEventListener("submit", async (e) => {
           e.preventDefault();
           const currentName = document.getElementById("currentName").value;
-          const currentEmail = document.getElementById("currentEmail").value;
           const newName = document.getElementById("newName").value;
-          const newEmail = document.getElementById("newEmail").value;
+          const ability = document.getElementById("ability").value;
+          const newAbility = document.getElementById("newAbility").value;
           try {
             const response = await fetch(
-              `/update-user/${currentName}/${currentEmail}`,
+              `/update-user/${currentName}, ${ability}`,
               {
                 method: "PUT",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ newName, newEmail }),
+                body: JSON.stringify({ newName, newAbility }),
               }
             );
             const data = await response.json();
@@ -100,7 +98,7 @@
           const users = await fetchUsers();
           if (Array.isArray(users) && users.length > 0) {
             users.forEach((user) => {
-              const row = `<tr><td>${user.name}</td><td>${user.email}</td></tr>`;
+              const row = `<tr><td>${user.name}</td><td>${user.ability}</td></tr>`;
               tableBody.innerHTML += row;
             });
           }
