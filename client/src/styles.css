@@ -1,0 +1,39 @@
+    body {
+        text-align:center;
+        /* width:80%; */
+        background-color:lightblue;
+        margin:auto;
+        color:snow;
+
+        
+
+      }
+      .forms{
+        text-align:center;
+        align-items:center;
+        border:3px solid black;
+        margin:auto;
+        margin-top:20px;
+        margin-left:100px;
+        margin-bottom:20px;
+        font-size:1em;
+        padding:10px;
+        /* height:40vh; */
+        /* width:30vw; */
+        
+      }
+      #container{
+        float:left;
+
+      }
+      #superheroList{
+        float:right;
+        margin-right:100px;
+        margin-top:100px;
+        width:40vw;
+        height:50vh;
+        /* margin:auto; */
+        text-align:center;
+
+      }
+     

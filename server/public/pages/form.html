@@ -4,79 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Form</title>
-    <style>
-      body {
-        text-align:center;
-        /* width:80%; */
-        background-color:lightblue;
-        margin:auto;
-        color:snow;
+        <link rel="stylesheet" type="text/css" href="./styles.css"/>
 
-        
-
-      }
-      form{
-        text-align:center;
-        align-items:center;
-      }
-      table{
-        text-align:center;
-        margin:auto;
-      }
-    </style>
+    
   </head>
   <body>
-    <h1>Contact Form</h1>
-    <form action="/submit-form" method="POST">
+    <header style="height:10vh;font-size:3.5em; color:black; border:2px solid black; margin:auto; text-align:center; padding-top:10px; vertical-align:baseline; letter-spacing: 3px;">Create your own Superhero!!</header>
+    <div id="container">
+    <div class="forms">
+    <h1>Create your hero here!</h1>
+    
+    <form  action="/submit-form" method="POST">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required /><br /><br />
-      <label for="email">Email:</label>
+      <label for="email">Powers:</label>
       <input type="email" id="email" name="email" required /><br /><br />
-      <label for="message">Message:</label><br />
-      <textarea
+      <!-- <label for="message">Message:</label><br /> -->
+      <!-- <textarea
         id="message"
         name="message"
         rows="4"
         cols="50"
         required
       ></textarea
-      ><br /><br />
+      ><br /><br /> -->
       <input type="submit" value="Submit" />
     </form>
-    <h1>User Management</h1>
-    <h2>Update User</h2>
+    </div>
+    <h1 style="font-size:3em; margin-left:100px;">Superhero Management</h1>
+    <div class="forms">
+    <h2>Change Name</h2>
+    
     <form id="updateForm">
       <label for="currentName">Current name:</label>
       <input type="text" id="currentName" required /><br /><br />
-      <label for="currentEmail">Current email:</label>
+      <label for="currentEmail">Current powers:</label>
       <input type="email" id="currentEmail" required /><br /><br />
       <label for="newName">New name:</label>
       <input type="text" id="newName" required /><br /><br />
-      <label for="newEmail">New email:</label>
+      <label for="newEmail">New powers:</label>
       <input type="email" id="newEmail" required /><br /><br />
       <button type="submit">Update User</button>
     </form>
-    <h2>Delete User</h2>
-    <form id="delete-user">
+    </div>
+     <div class="forms">
+    <h2>Delete Superhero</h2>
+    
+    <form  id="delete-user">
       <label for="delete-name">Name:</label>
       <input type="text" id="delete-name" /><br /><br />
 
-      <label for="delete-email">Email:</label>
+      <label for="delete-email">Powers:</label>
       <input type="text" id="delete-email" /><br /><br />
       <button type="submit">Delete User</button><br /><br />
     </form>
-    <h1>Show Users</h1>
-    <table id="usersTable">
+    </div>
+  </div>
+     <div id="superheroList" class="forms">
+    <h1>List of Superheros!!!</h1>
+    
+    <table style="text-align:center; margin:auto;" id="usersTable">
       <thead>
         <tr>
-          <th>User Name</th>
-          <th>User Email</th>
+          <th>Superhero Name</th>
+          <th>Superhero Powers</th>
         </tr>
       </thead>
       <tbody id="userTableBody">
         <!-- data of users will be rendered here -->
       </tbody>
     </table>
+    </div>
     <script>
       document
         .getElementById("updateForm")
